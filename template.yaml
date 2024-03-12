@@ -1,0 +1,28 @@
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: !Sub
+        - Stack ${AWS::StackName} Function ${ResourceName}
+        - ResourceName: Function
+      MemorySize: 512
+      Timeout: 30
+      Tracing: Active
+      PackageType: Image
+      Architectures:
+        - arm64
+      FunctionUrlConfig:
+        AuthType: NONE
+      Tags:
+        Billing: 'ibaraki'
+        Project: 'ibaraki'
+        
+    Metadata:
+      DockerContext: ./
+      Dockerfile: Dockerfile
+  FunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${Function}
