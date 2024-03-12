@@ -9,3 +9,8 @@ rye sync
 ```
 rye run start
 ```
+
+## start app with container
+```
+docker compose up
+```
