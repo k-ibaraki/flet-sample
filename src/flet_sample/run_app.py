@@ -29,7 +29,3 @@ def main(page: ft.Page):
 
 def run():
     ft.app(target=main, view=ft.AppView.WEB_BROWSER, port=8000)
-
-
-if __name__ == "__main__":
-    run()

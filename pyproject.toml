@@ -7,16 +7,22 @@ dependencies = ["flet>=0.21.1"]
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 
-[project.scripts]
-start = 'src.flet_sample.run_app:run'
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = ["mypy>=1.9.0"]
+
+[tool.rye.scripts]
+start = 'src.flet_sample.run_app:run'
+build = { cmd = "flet build web" }
+serv = { cmd = "cd build/web && python -m http.server" }
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true

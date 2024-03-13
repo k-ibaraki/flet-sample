@@ -15,9 +15,8 @@ Resources:
       FunctionUrlConfig:
         AuthType: NONE
       Tags:
-        Billing: 'ibaraki'
-        Project: 'ibaraki'
-        
+        Billing: ibaraki
+        Project: ibaraki
     Metadata:
       DockerContext: ./
       Dockerfile: Dockerfile

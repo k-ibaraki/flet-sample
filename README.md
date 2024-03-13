@@ -5,12 +5,18 @@
 rye sync
 ```
 
-## start app
+## start app (python)
 ```
 rye run start
 ```
 
-## start app with container
+## start app (http-server)
+```
+rye run build
+rye run serv
+```
+
+## start app (container)
 ```
 docker compose up
 ```
