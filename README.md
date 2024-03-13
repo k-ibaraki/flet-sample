@@ -1,22 +1,6 @@
-# flet-sample
+# Flet-Sample
 
-## install packages
-```
-rye sync
-```
-
-## start app (python)
-```
-rye run start
-```
-
-## start app (http-server)
-```
-rye run build
-rye run serv
-```
-
-## start app (container)
-```
-docker compose up
-```
+- app/
+  - flet-sample-web-app
+- cdk/
+  - deploy to AppRunner
