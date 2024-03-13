@@ -1,5 +1,5 @@
 # ビルド用のイメージを作成 #
-FROM python:3.12-slim-bookworm AS build
+FROM python:3.11-slim-bookworm AS build
 
 # Flutterを導入 #
 WORKDIR /flutter
@@ -10,7 +10,6 @@ RUN apt-get install -y curl git unzip
 # 変数の定義
 ARG FLUTTER_SDK=/usr/local/flutter
 ARG FLUTTER_VERSION=3.19.3
-ARG APP=/app/
 
 # flutterのインストール
 RUN git clone https://github.com/flutter/flutter.git $FLUTTER_SDK
@@ -30,7 +29,7 @@ RUN pip install -r requirements.txt && rm requirements.txt
 RUN flet build web
 
 # 実行用のイメージを作成 #
-FROM python:3.12-slim-bookworm
+FROM python:3.11-slim-bookworm
 
 EXPOSE 8000
 ENV PORT=8000
